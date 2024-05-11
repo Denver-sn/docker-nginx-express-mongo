@@ -10,7 +10,7 @@ services:
     ports:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     volumes:
-      - db:/data/db # Définition du volume db ici
+      - db:/data/db 
 
   nodejs:
     depends_on:
@@ -55,7 +55,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email team@dexchange.sn --agree-tos --no-eff-email --staging -d api-kronance.com  -d www.api-kronance.com
+    command: certonly --webroot --webroot-path=/var/www/html --email my-email@domain.com --agree-tos --no-eff-email --staging -d domain.com  -d www.domain.com
 
 volumes:
   db: # Définition du volume db ici
@@ -65,7 +65,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/mac/Desktop/dockers-p/
+      device: /Users/mac/Desktop/dockers-p/ # change it like /Users/{PC_NAME}/....
       o: bind
 
 networks:
